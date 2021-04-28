@@ -14,13 +14,12 @@ class SearchForm extends PureComponent {
     }
   };
   render() {
-    console.log('SearchForm render')
     return (
       <div className="search-form">
         <input
           type="text"
           className="search-input"
-          placeholder="Search..."
+          placeholder="Search.."
           ref={this.inputRef}
           onKeyPress={this.handleKeyPress}
         />

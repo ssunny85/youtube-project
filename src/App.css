@@ -18,6 +18,11 @@ button {
   box-sizing: border-box;
 }
 
+.body {
+  display: flex;
+  background: beige;
+}
+
 .search-form {
   display: flex;
   flex-direction: row;
@@ -49,10 +54,6 @@ button {
   height: 2rem;
   margin: 1rem 0;
   text-align: center;
-}
-
-.item-wrap {
-  list-style: none;
 }
 
 .item-block {
@@ -98,3 +99,7 @@ button {
   vertical-align: top;
 }
 
+.video-detail {
+  padding: 1.5rem;
+  border: 1px solid #f00;
+}

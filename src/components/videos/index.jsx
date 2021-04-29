@@ -1,5 +1,5 @@
 import React, {PureComponent} from 'react';
-import VideoItem from './videoItem';
+import VideoItem from '../videoItem';
 
 class Videos extends PureComponent {
   render() {

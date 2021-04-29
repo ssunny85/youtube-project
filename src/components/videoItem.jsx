@@ -22,7 +22,7 @@ class VideoItem extends PureComponent {
           <p>등록일: {publishedAt}</p>
         </div>
         <span className="item-thumb">
-          <img src={thumbnails.default.url} align="" />
+          <img src={thumbnails.default.url} alt="" />
         </span>
       </li>
     );

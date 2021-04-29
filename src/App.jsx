@@ -24,7 +24,6 @@ class App extends Component {
       const { data } = await axios.get(
         `${process.env.REACT_APP_API_URL}/videos?part=snippet&chart=mostPopular&maxResults=25&key=${process.env.REACT_APP_API_KEY}`
       );
-      console.log('data: ', data);
       this.setState({
         videos: data.items,
       });
@@ -34,7 +33,6 @@ class App extends Component {
   };
 
   handleSelected = (id) => {
-    console.log('selected: ', id);
     this.setState({
       selectedVideo: {
         id,
@@ -47,6 +45,10 @@ class App extends Component {
     const { data } = await axios.get(
       `${process.env.REACT_APP_API_URL}/search?part=snippet&maxResults=25&q=${keyword}&key=${process.env.REACT_APP_API_KEY}`
     );
+    data.items = data.items.map(item => ({
+      ...item,
+      id: item.id.videoId,
+    }));
     this.setState({
       videos: data.items,
     });

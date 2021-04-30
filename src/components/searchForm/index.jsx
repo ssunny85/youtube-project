@@ -1,4 +1,5 @@
 import React, {PureComponent} from 'react';
+import './style.scss';
 
 class SearchForm extends PureComponent {
   inputRef = React.createRef();

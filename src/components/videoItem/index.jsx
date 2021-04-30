@@ -1,4 +1,5 @@
 import React, {PureComponent} from 'react';
+import './style.scss';
 
 class VideoItem extends PureComponent {
   itemRef = React.createRef();

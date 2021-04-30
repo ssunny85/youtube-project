@@ -4,7 +4,7 @@ import axios from 'axios';
 import SearchForm from './components/searchForm';
 import VideoDetail from './components/videoDetail';
 import Videos from './components/videos';
-import './App.css';
+import './App.scss';
 dotenv.config();
 
 class App extends Component {

@@ -1,0 +1,41 @@
+/* reset */
+* {
+  margin: 0;
+  padding: 0;
+  color: #222;
+}
+
+a {
+  text-decoration: none;
+}
+
+button {
+  min-width: 4rem;
+  margin: 0;
+  padding: 0;
+  border: 0 none;
+  color: #000;
+  text-align: center;
+  box-sizing: border-box;
+}
+
+.body {
+  display: flex;
+  background: beige;
+}
+
+@media (max-width: 768px) {
+  .body {
+    flex-direction: column;
+  }
+  .video-detail,
+  .video-detail + .video-list {
+    width: 100%;
+  }
+  .video-detail {
+    border-right: 0 none;
+  }
+  .video-list {
+    border-top: 1px solid black;
+  }
+}

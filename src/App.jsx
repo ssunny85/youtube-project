@@ -1,15 +1,12 @@
 import React, {Component} from 'react';
-import dotenv from 'dotenv';
-import axios from 'axios';
 import SearchForm from './components/searchForm';
 import VideoDetail from './components/videoDetail';
 import Videos from './components/videos';
 import './App.scss';
-dotenv.config();
 
 class App extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
       videos: [],
       selectedVideo: {
@@ -17,19 +14,14 @@ class App extends Component {
         contents: '',
       },
     };
+    this.youtube = props.youtube;
   };
 
-  async componentDidMount() {
-    try {
-      const { data } = await axios.get(
-        `${process.env.REACT_APP_API_URL}/videos?part=snippet&chart=mostPopular&maxResults=25&key=${process.env.REACT_APP_API_KEY}`
-      );
-      this.setState({
-        videos: data.items,
+  componentDidMount() {
+    this.youtube.mostPopular()
+      .then(videos => {
+        this.setState({ videos });
       });
-    } catch (err) {
-      console.log('err: ', err);
-    }
   };
 
   handleSelected = (id) => {
@@ -41,17 +33,11 @@ class App extends Component {
     });
   };
 
-  handleSearch = async (keyword) => {
-    const { data } = await axios.get(
-      `${process.env.REACT_APP_API_URL}/search?part=snippet&maxResults=25&q=${keyword}&key=${process.env.REACT_APP_API_KEY}`
-    );
-    data.items = data.items.map(item => ({
-      ...item,
-      id: item.id.videoId,
-    }));
-    this.setState({
-      videos: data.items,
-    });
+  handleSearch = (keyword) => {
+    this.youtube.search(keyword)
+      .then(videos => {
+        this.setState({ videos });
+      });
   };
 
   render() {
